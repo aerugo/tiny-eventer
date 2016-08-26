@@ -1,6 +1,6 @@
 'use strict'
 
-var eventer = require('./eventer');
+var eventer = require('./tiny-eventer');
 
 var counter = 0;
 

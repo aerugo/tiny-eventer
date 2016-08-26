@@ -1,16 +1,16 @@
 {
-  "name": "eventer",
+  "name": "tiny-eventer",
   "version": "0.0.1",
   "description": "A small event subscrubtion system.",
-  "main": "eventer.js",
+  "main": "tiny-eventer.js",
   "scripts": {
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kristofferostlund/eventer.git"
+    "url": "git+https://github.com/kristofferostlund/tiny-eventer.git"
   },
   "keywords": [
-    "eventer",
+    "tiny-eventer",
     "event",
     "node",
     "nodejs"
@@ -18,7 +18,7 @@
   "author": "Kristoffer Östlund",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kristofferostlund/eventer/issues"
+    "url": "https://github.com/kristofferostlund/tiny-eventer/issues"
   },
-  "homepage": "https://github.com/kristofferostlund/eventer#readme"
+  "homepage": "https://github.com/kristofferostlund/tiny-eventer#readme"
 }
