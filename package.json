@@ -1,0 +1,24 @@
+{
+  "name": "eventer",
+  "version": "0.0.1",
+  "description": "A small event subscrubtion system.",
+  "main": "eventer.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristofferostlund/eventer.git"
+  },
+  "keywords": [
+    "eventer",
+    "event",
+    "node",
+    "nodejs"
+  ],
+  "author": "Kristoffer Östlund",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristofferostlund/eventer/issues"
+  },
+  "homepage": "https://github.com/kristofferostlund/eventer#readme"
+}
