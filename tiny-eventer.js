@@ -6,6 +6,19 @@
 function noop() { return void 0; }
 
 /**
+ * Returns true or false for whether *value* isn't null or undefined.
+ *
+ * true is returned if *value* is not null and not undefined.
+ * false is returned if *value* is either null or undefined.
+ *
+ * @param {Any} value
+ * @return {Boolean}
+ */
+function exists(value) {
+  return typeof value !== 'undefined' && value !== null;
+}
+
+/**
  * @class Eventer
  * @type {{ on: Function, off: Function, trigger: Function }}
  */
@@ -42,7 +55,10 @@ function Eventer() {
     this.off = function (eventName, _listener, __this) {
         // Filter out the eventItem where either the listener or this matches *_listener* or *__this*
         this.$events[eventName] = (this.$events[eventName] || []).filter(function (eventItem) {
-            return ![eventItem.listener === _listener, eventItem._this === __this].some(function (condition) { return condition; });
+            return ![
+              exists(eventItem.listener) && eventItem.listener === _listener,
+              exists(eventItem._this) && eventItem._this === __this
+            ].some(function (condition) { return condition; });
         });
     }.bind(this);
 
