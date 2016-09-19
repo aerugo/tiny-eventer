@@ -26,7 +26,7 @@ var Eventer = require('tiny-eventer').Eventer;
 
 ### API
 
-#### `on(eventName, listener, [thisArg])`
+#### `eventer.on(eventName, listener, [thisArg])`
 
 Subscribes to events on `eventName`.
 
@@ -54,7 +54,7 @@ eventer.on('other_user_added', function (user) { console.log('other_user_added e
 /** ... */
 ```
 
-#### `off(eventName, listener, [thisArg])`
+#### `eventer.off(eventName, listener, [thisArg])`
 
 Unsubscribes to events on `eventName`.
 
@@ -80,9 +80,13 @@ eventer.off('other_user_added', undefined, 'some.id');
 /** ... */
 ```
 
-#### `trigger(eventName, [...params])`
+#### `eventer.trigger(eventName, [...params])`
 
-Triggers an event with the provided params, if any.
+Triggers an event with the passed in parameters, if any.
+
+`eventName (String)` Name of the event to trigger
+
+`[...params (Any)]` Parameters to be passed into callbacks
 
 ```javascript
 /** ... */
@@ -110,3 +114,18 @@ eventer.trigger('users_added', newUser, otherUser);
 
 /** ... */
 ```
+
+#### `new eventer.Eventer()`
+
+Creates a new Eventer instance useful for creating sandboxed events.
+
+```javascript
+/** ... */
+
+var _eventer = new eventer.Eventer();
+
+_eventer === eventer;
+
+/** ... */
+```
+
