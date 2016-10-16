@@ -4,6 +4,7 @@
   "description": "A small event subscrubtion system.",
   "main": "tiny-eventer.js",
   "scripts": {
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
