@@ -44,6 +44,11 @@ function Eventer() {
         this.$events[eventName] = (this.$events[eventName] || []).filter(function (eventItem) {
             return ![eventItem.listener === _listener, eventItem._this === __this].some(function (condition) { return condition; });
         });
+
+        // Delete the property if there are no more listeners on it
+        if (this.$events[eventName].length < 1) {
+            delete this.$events[eventName];
+        }
     }.bind(this);
 
 
