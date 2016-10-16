@@ -60,6 +60,11 @@ function Eventer() {
               exists(eventItem._this) && eventItem._this === __this
             ].some(function (condition) { return condition; });
         });
+
+        // Delete the property if there are no more listeners on it
+        if (this.$events[eventName].length < 1) {
+            delete this.$events[eventName];
+        }
     }.bind(this);
 
 
