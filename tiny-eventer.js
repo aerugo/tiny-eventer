@@ -65,14 +65,19 @@
      * @param {Function} _listener The function to be called.
      * @param {Any} _this Other identification to use for when the listener could be anonymous
      */
-    this.off = function (eventName, _listener, _this) {
-      // Filter out the eventItem where either the listener or this matches *_listener* or *_this*
-      this.$events[eventName] = (this.$events[eventName] || []).filter(function (eventItem) {
-        return ![
-          exists(eventItem.listener) && eventItem.listener === _listener,
-          exists(eventItem._this) && eventItem._this === _this
-        ].some(function (condition) { return condition; });
-      });
+    this.off = function (eventName, _listener, __this) {
+        // Filter out the eventItem where either the listener or this matches *_listener* or *__this*
+        this.$events[eventName] = (this.$events[eventName] || []).filter(function (eventItem) {
+            return ![
+              exists(eventItem.listener) && eventItem.listener === _listener,
+              exists(eventItem._this) && eventItem._this === __this
+            ].some(function (condition) { return condition; });
+        });
+
+        // Delete the property if there are no more listeners on it
+        if (this.$events[eventName].length < 1) {
+            delete this.$events[eventName];
+        }
     }.bind(this);
 
     /**
