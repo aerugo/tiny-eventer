@@ -56,6 +56,13 @@ declare module 'tiny-eventer' {
         clear(eventName: String): void;
 
         /**
+         * Removes all listeners from all events.
+         *
+         * This essentially resets the module.
+         */
+        clearAll(): void;
+
+        /**
          * Triggers an event with the passed in parameters, if any.
          *
          * @param {String} eventName Name of the event to trigger

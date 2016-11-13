@@ -114,6 +114,21 @@ eventer.clear('user_added');
 /** ... */
 ```
 
+#### `eventer.clearAll()`
+
+Removes all listeners from all events
+
+**Example**
+
+```javascript
+/** ... */
+
+// Remove all listeners
+eventer.clearAll();
+
+/** ... */
+```
+
 #### `eventer.trigger(eventName, [...params])`
 
 Triggers an event with the passed in parameters, if any.
@@ -173,4 +188,3 @@ eventer instanceof eventer.Eventer;
 
 /** ... */
 ```
-

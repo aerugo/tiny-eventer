@@ -85,6 +85,17 @@
     }.bind(this);
 
     /**
+     * Removes all listeners from all events.
+     *
+     * This essentially resets the module.
+     */
+    this.clearAll = function () {
+      Object.keys(this.$events).forEach(function (key) {
+        delete this.$events[key];
+      }.bind(this));
+    }.bind(this);
+
+    /**
      * @param {String} eventName Name of the event to trigger
      * @param {Any} params Splat array of all params other than *eventName*, will be used when calling listeners
      */
