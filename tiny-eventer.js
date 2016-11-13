@@ -27,6 +27,14 @@
     this.$events = {};
 
     /**
+     * Subscribes to events on `eventName`.
+     *
+     * When an event is triggered, `listener` is called with any params passed into `trigger`.
+     *
+     * For identification, `_this` can be passed in to allow for grouped unsubsribes or when `listener` is anonymous.
+     *
+     * Returns the created TinyEventItem.
+     *
      * @param {String} eventName Name of the event to listen for
      * @param {Function} listener The function to be called. Defaults to noop
      * @param {Any} _this Other identification to use for when the listener could be anonymous
@@ -49,6 +57,10 @@
     }.bind(this);
 
     /**
+     * Unsubscribes to events on `eventName` and removes all TinyEventItems where `listener` or `_this` matches their equivalent in the TinyEventItem.
+     *
+     * `_this` can be passed in to allow for grouped unsubsribes or when `listener` is anonymous.
+     *
      * @param {String} eventName Name of the event to stop listening for
      * @param {Function} _listener The function to be called.
      * @param {Any} _this Other identification to use for when the listener could be anonymous
@@ -63,6 +75,14 @@
       });
     }.bind(this);
 
+    /**
+     * Unsubscribes all listeners on `eventName`
+     *
+     * @param {String} eventName Name of the event to remove all listeners for
+     */
+    this.clear = function (eventName) {
+      delete this.$events[eventName];
+    }.bind(this);
 
     /**
      * @param {String} eventName Name of the event to trigger

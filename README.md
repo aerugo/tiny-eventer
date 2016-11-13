@@ -97,6 +97,23 @@ eventer.off('other_user_added', undefined, 'some.id');
 /** ... */
 ```
 
+#### `eventer.clear(eventName)`
+
+Unsubscribes all listeners on `eventName`
+
+`eventName (String)` Name of the event to remove all listeners from
+
+**Example**
+
+```javascript
+/** ... */
+
+// Unsubscribe all listeners
+eventer.clear('user_added');
+
+/** ... */
+```
+
 #### `eventer.trigger(eventName, [...params])`
 
 Triggers an event with the passed in parameters, if any.

@@ -49,6 +49,13 @@ declare module 'tiny-eventer' {
         off(eventName: String, listener: (...args) => void, _this?: any): void;
 
         /**
+         * Unsubscribes all listeners on `eventName`
+         *
+         * @param {String} eventName Name of the event to remove all listeners for
+         */
+        clear(eventName: String): void;
+
+        /**
          * Triggers an event with the passed in parameters, if any.
          *
          * @param {String} eventName Name of the event to trigger
