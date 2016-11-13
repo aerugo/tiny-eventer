@@ -30,6 +30,17 @@ var eventer = require('tiny-eventer');
 var Eventer = require('tiny-eventer').Eventer;
 ```
 
+In the browser:
+
+```javascript
+// eventer is a global object, attached on window.eventer
+eventer === window.eventer;
+// true
+
+// Get the eventer class to for creating new instances
+var Eventer = eventer.Eventer;
+```
+
 ### API
 
 #### `eventer.on(eventName, listener, [_this])`
