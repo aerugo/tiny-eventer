@@ -1,6 +1,6 @@
 {
   "name": "tiny-eventer",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A small event subscrubtion system.",
   "main": "tiny-eventer.js",
   "scripts": {
