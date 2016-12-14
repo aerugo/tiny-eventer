@@ -1,7 +1,6 @@
-// Type definition for tiny-eventer v0.0.2
+// Type definition for tiny-eventer v0.1.1
 // Project: htps://github.com/kristofferostlund/tiny-eventer
 // Definitions by: Kristoffer Östund <https://gihub.com/kristofferostlund/>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 declare module 'tiny-eventer' {
 
