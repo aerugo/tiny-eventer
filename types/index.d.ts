@@ -4,7 +4,7 @@
 
 declare module 'tiny-eventer' {
 
-    interface TinyEventItem { listener: (...args) => void, _this?: any; }
+    interface TinyEventItem { listener: (...args) => void, _this?: any, $isOnce?: Boolean; }
 
     interface IDictionary<T> {
         [index: string]: T;
@@ -35,6 +35,22 @@ declare module 'tiny-eventer' {
          * @return {TinyEventItem}
          */
         on(eventName: String, listener: (...args) => void, _this?: any): TinyEventItem;
+
+        /**
+         * Subscribes to a single event on `eventName`.
+         *
+         * When an event is triggered, `listener` is called with any params passed into `trigger`.
+         *
+         * For identification, `_this` can be passed in to allow for grouped unsubsribes or when `listener` is anonymous.
+         *
+         * Returns the created TinyEventItem.
+         *
+         * @param {String} eventName Name of the event to listen for
+         * @param {Function} listener The function to be called. Defaults to _.noop
+         * @param {Any} _this Optional other identification to use for when the listener could be anonymous
+         * @return {TinyEventItem}
+         */
+        once(eventName: String, listener: (...args) => void, _this?: any): TinyEventItem;
 
         /**
          * Unsubscribes to events on `eventName` and removes all TinyEventItems where `listener` or `_this` matches their equivalent in the TinyEventItem.

@@ -71,6 +71,39 @@ eventer.on('other_user_added', function (user) { console.log('other_user_added e
 /** ... */
 ```
 
+#### `eventer.once(eventName, listener, [_this])`
+
+Subscribes to a single event on `eventName`. Only difference between `eventer.once` and `eventer.on` is that `eventer.once` will only fire once, as is suggested by the name of the function.
+
+Events subscribed to using once are cancellable using `eventer.off(...)`.
+
+`eventName (String)` Name of the event to listen for
+
+`listener (Function)` The function to be called. Any params passed into `trigger(eventName, [...params])` will be passed in.
+
+`[_this (Any)]` A reference to `this` (or an ID of sorts) which can be used for unsubscribing to events when `listener` is an anonymous function. This can be used to group event listeners, as string or number could be passed in.
+
+**Example**
+
+```javascript
+/** ... */
+
+// Passing in a named function and skipping *_this*
+eventer.once('user_added', onAddedUser);
+
+function onAddedUser(user) {
+  console.log('user_added event!');
+}
+
+eventer.trigger('user_added', { userId: 1, name: 'Arthur Dent' });
+// Logs 'user_added event!'
+
+eventer.trigger('user_added', { userId: 2, name: 'Ford Prefect' });
+// Logs nothing
+
+/** ... */
+```
+
 #### `eventer.off(eventName, listener, [_this])`
 
 Unsubscribes to events on `eventName`.
@@ -79,7 +112,7 @@ Unsubscribes to events on `eventName`.
 
 `[listener (Function)]` The function which would've been called. Either this `_this` can be used to match an event listener.
 
-`[_this (Any)]` A possible other identification if `listener` is an anonymous function, or if a group of events should be unsubscribed with a single call.
+`[_this (Any)]` A possible other identification for when `listener` is an anonymous function, or if a group of events should be unsubscribed with a single call.
 
 **Example**
 
